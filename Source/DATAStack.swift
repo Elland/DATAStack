@@ -221,7 +221,7 @@ import CoreData
      Drops the database.
      */
     public func drop() throws {
-        guard let store = self.persistentStoreCoordinator.persistentStores.last, storeURL = store.url, storePath = storeURL.path
+        guard let store = self.persistentStoreCoordinator.persistentStores.last, let storeURL = store.url, let storePath = storeURL.path
             else { throw NSError(info: "Persistent store coordinator not found", previousError: nil) }
 
         let sqliteFile = (storePath as NSString).deletingPathExtension
